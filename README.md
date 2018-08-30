@@ -3,6 +3,30 @@ Self-Driving Car Engineer Nanodegree Program
 
 ---
 
+## Purpose
+
+The purpose of the project is to implement Model Predictive Control to drive the car around the track in the simulator.
+There is a 100 millisecond latency between actuations commands on top of the connection latency.
+
+## Implementation
+
+* **The Model**
+ A kinematic model is used. The state vector includes the vehicle's x and y coordinates(x, y), orientation angle (psi), velocity(v), cross-track error(cte) and psi error (epsi). Actuators are acceleration(a) and steering angle(delta).
+The followings are update equations and constraints on actuators variables.
+
+
+* **Timestep Length and Elapsed Duration (N & dt)**
+Here I set the dt to be 0.1s, the same as the latency between actuations commands on top of the connection latency. Because the other latancy such as connetction and computing latency are negligible, I can simply consider the ideal actuation in the previous step as the true actuation in the current step. After several trials, I choose the N to be 25. The combination of the chosen N(20) and dt(0.1) works well on predict a practicable trajectory.
+Other values of N & dt I tried is 10 & 0.1, 15 & 0.1, 25 & 0.1, 30 & 0.1.
+
+* **Polynomial Fitting and MPC Preprocessing**
+I transform thoes waypoints from the map coordinate systems to the vehicle coordinate systems. These makes it easy to pass values to  plot trajectories, and reduce the amount of calculation in the following process as well.
+Then I fit these new waypoints to a third degree polynomial.
+
+* **Model Predictive Control with Latency**
+the cost function includes cte, epsi, difference between velocity and the reference velocity, delta, acceleration, the value gap between sequential actuations(a and delta). the IPOPT and CPPAD libraries are used to minimize cost and calculate an optimal trajectory and actuations within a timestep.
+To deal with latency, since I already set dt to be the same as the latency, when using model update equations, I use the the actuation values in the previous step to be the actuation inputs in the current step.
+
 ## Dependencies
 
 * cmake >= 3.5
