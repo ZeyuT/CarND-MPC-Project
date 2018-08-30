@@ -18,8 +18,8 @@ The followings are update equations and constraints on actuation variables.
 
 * **Timestep Length and Elapsed Duration (N & dt)**
 
-Here I set the dt to be 0.1s, the same as the latency between actuations commands on top of the connection latency. Because the other latancy such as connetction and computing latency are negligible, I can simply consider the ideal actuation in the previous step as the true actuation in the current step. After several trials, I choose the N to be 25. The combination of the chosen N(20) and dt(0.1) works well on predict a practicable trajectory.
-Other values of N & dt I tried is 10 & 0.1, 15 & 0.1, 25 & 0.1, 30 & 0.1.
+Here I set the dt to be 0.1s, the same as the latency between actuations commands on top of the connection latency. Because the other latancy such as connetction and computing latency are negligible, I can simply consider the ideal actuation in the previous step as the true actuation in the current step. After several trials, I choose the N to be 10. The combination of the chosen N(20) and dt(0.1) works well on predict a practicable trajectory.
+Other values of N & dt I tried is 5 & 0.1, 10 & 0.1, 15 & 0.1, 25 & 0.1.
 
 * **Polynomial Fitting and MPC Preprocessing**
 
