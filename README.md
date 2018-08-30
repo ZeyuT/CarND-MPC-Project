@@ -14,7 +14,7 @@ There is a 100 millisecond latency between actuations commands on top of the con
 
  A kinematic model is used. The state vector includes the vehicle's x and y coordinates(x, y), orientation angle (psi), velocity(v), cross-track error(cte) and psi error (epsi). Actuators are acceleration(a) and steering angle(delta).
 The followings are update equations and constraints on actuation variables.
-![Equations]("./UpdateEquation.JPG")
+![Equations](./UpdateEquation.JPG)
 
 * **Timestep Length and Elapsed Duration (N & dt)**
 
