@@ -27,7 +27,7 @@ Other values of N & dt I tried is 5 & 0.1, 10 & 0.1, 15 & 0.1, 20 & 0.1, 25 & 0.
 
 * **Polynomial Fitting and MPC Preprocessing**
 
-I transform thoes waypoints from the map coordinate systems to the vehicle coordinate systems. These makes it easy to pass values to  plot trajectories, and reduce the amount of calculation in the following process as well.
+I transform those waypoints from the map coordinate systems to the vehicle coordinate systems. These makes it easy to pass values to  plot trajectories, and reduce the amount of calculation in the following process as well.
 Then I fit these new waypoints to a third degree polynomial.
 
 * **Model Predictive Control with Latency**
